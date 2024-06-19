@@ -22,9 +22,15 @@
 
     "allowJs": false,
     "esModuleInterop": false,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@shadcn/*": ["./shadcn/*"], 
+    }
   },
-  "include": ["src"],
+  "include": ["src", "shadcn", "tailwind.config.ts"],
   "exclude": ["examples"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

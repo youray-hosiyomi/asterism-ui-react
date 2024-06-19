@@ -2,6 +2,7 @@ import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
+import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import { name } from "./package.json";
@@ -15,6 +16,7 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
     }),
+    tsconfigPaths()
   ],
   css: {
     postcss: {
@@ -22,6 +24,7 @@ export default defineConfig({
     },
   },
   build: {
+    copyPublicDir: true,
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: formattedName,
